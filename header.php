@@ -13,6 +13,7 @@
 			}
 			else
 			{
+				echo '<li><a href="reservation-form.php">Réserver</a></li>';
 				echo '<li><a href="profil.php">Mon compte</a></li>';
 				echo '<li><a href="deconnection.php">Déconnexion</a></li>';
 			}

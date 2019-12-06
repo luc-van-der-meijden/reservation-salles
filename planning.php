@@ -59,9 +59,13 @@
 											
 											if($joursem == $i && $heure == $l)
 											{
+												$requete2 = "SELECT login FROM utilisateurs WHERE id = '".$donnees['id_utilisateur']."'";
+												$req = mysqli_query($connexion, $requete2);
+												$data = mysqli_fetch_assoc($req);
+												
 												$id = $donnees['id'];
 												echo "<a href='reservation.php?id=", $id, "'>";
-												echo $donnees['debut'], '<br/>';
+												echo $data['login'], '<br/>';
 												echo $donnees['titre'];
 												echo '</a>';
 											}

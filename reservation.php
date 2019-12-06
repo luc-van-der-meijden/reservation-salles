@@ -29,8 +29,8 @@
 					$resultat = mysqli_query($connexion, $requete);
 					$donnees = mysqli_fetch_assoc($resultat);
 				
-					$requete = "SELECT login FROM utilisateurs WHERE id = '".$donnees['id_utilisateur']."'";
-					$req = mysqli_query($connexion, $requete);
+					$requete2 = "SELECT login FROM utilisateurs WHERE id = '".$donnees['id_utilisateur']."'";
+					$req = mysqli_query($connexion, $requete2);
 					$data = mysqli_fetch_assoc($req);
 				
 					echo $data['login'], '<br/>';
