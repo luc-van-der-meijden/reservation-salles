@@ -189,15 +189,30 @@
 
 		.ligne .evenement{
 			width: 14vw;
-			border: 0.2px solid #DCDCDC;
-			padding: 10px;
-			vertical-align: top;
+			border: 0.2px solid #000000;
 			text-align: center;
+			padding: 0;
+			height: 8vh;
+		}
+		
+		.ligne .evenement .event_color{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: #88c1d0;
+			height: 8vh;
+		}
+
+		.ligne .evenement a{
+			text-decoration: none;
+			color: #000000;
+			vertical-align: center;
 		}
 
 /* RESERVATION */
 
-	#revervation{
+	#reservation_page{
 		width: 100%;
 		height: 100vh;
 		display: flex;
@@ -206,7 +221,28 @@
 		justify-content: center;
 	}
 
-	#revervation form{
+	.reservation_page_info{
+		width: 90%;
+		padding: 12px;
+		background-color: #FFFFFF;
+		font-size: 1.5vw;
+		color: #000000;
+		margin: 20px 0;
+		text-align: center;
+	}
+
+/* RESERVATION FORMULAIRE */
+
+	#reservation_form{
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#reservation_form form{
 		width: 40vw;
 		margin: 20px 0;
 		display: flex;
@@ -215,7 +251,7 @@
 		justify-content: center;
 	}
 
-	.revervation_2{
+	.reservation_2{
 		width: 100%;
 		padding: 15px;
 		margin: 20px;
@@ -227,6 +263,13 @@
 		box-sizing: content-box;
 	}
 
+	.reservation_select{
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		box-sizing: content-box;
+	}
+
 	.date{
 		display: flex;
 		flex-direction: row;
@@ -234,7 +277,7 @@
 		width: 40vw;
 	}
 
-	.revervation_3{
+	.reservation_3{
 		width: 20vw;
 		padding: 15px;
 		margin: 20px 0;
@@ -246,7 +289,7 @@
 		box-sizing: content-box;
 	}
 
-	.revervation_4{
+	.reservation_4{
 		cursor: pointer;
 		background-color: #88c1d0;
 	}

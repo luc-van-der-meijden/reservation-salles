@@ -20,7 +20,7 @@
 				$nouveau_login = "SELECT id FROM utilisateurs WHERE login='".$login."'";
 				$resultat = mysqli_query ($connexion, $nouveau_login);
 				$nombre_login = mysqli_num_rows($resultat);
-
+				
 				if($nombre_login < 1)
 				{
 					$sql = "UPDATE utilisateurs SET login = '$login' WHERE id = '".$_SESSION['id']."'";

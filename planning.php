@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" media="screen and (min-device-width: 480px)" href="style.css"/>
-		<title>Accueil - Réservation salle</title>
+		<title>Planning - Réservation salle</title>
 	</head>
 	
 	<body>
@@ -23,27 +23,27 @@
 					<thead>
 						<tr id="jours">
 							<th class="heure"></th>
+							<th class="jour2">Dimanche</th>
 							<th class="jour2">Lundi</th>
 							<th class="jour2">Mardi</th>
 							<th class="jour2">Mercredi</th>
 							<th class="jour2">Jeudi</th>
 							<th class="jour2">Vendredi</th>
 							<th class="jour2">Samedi</th>
-							<th class="jour2">Dimanche</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 							$connexion = mysqli_connect("localhost", "root", "", "reservationsalles");
-							$requete = "SELECT * FROM reservations  WHERE YEAR(debut) = YEAR(CURDATE()) AND WEEK(debut) = WEEK(CURDATE())";
+							$requete = "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE WEEK(reservations.debut) = WEEK(CURDATE())";
 							$resultat = mysqli_query($connexion, $requete);
-						
+							
 							for($l = 8; $l < 19; ++$l)
 							{
 								echo '<tr class="ligne">';
 									echo '<td class="heure">', $l, '</td>';
-								
-									for($i = 1; $i <= 7; ++$i) 
+									
+									for($i = 0; $i <= 6; ++$i)
 									{
 										echo '<td class="evenement">';
 										$d = 0;
@@ -59,15 +59,11 @@
 											
 											if($joursem == $i && $heure == $l)
 											{
-												$requete2 = "SELECT login FROM utilisateurs WHERE id = '".$donnees['id_utilisateur']."'";
-												$req = mysqli_query($connexion, $requete2);
-												$data = mysqli_fetch_assoc($req);
-												
 												$id = $donnees['id'];
-												echo "<a href='reservation.php?id=", $id, "'>";
-												echo $data['login'], '<br/>';
+												echo "<a href='reservation.php?id=", $id, "'><div class='event_color'>";
+												echo $donnees['login'], '<br/>';
 												echo $donnees['titre'];
-												echo '</a>';
+												echo '</div></a>';
 											}
 											++$d;
 										}
@@ -75,10 +71,11 @@
 									}
 								echo'</tr>';
 							}
-						
 						?>
 					</tbody>
 				</table>
+				
+				
 			</section>
 		</div>
 		

@@ -22,7 +22,7 @@
 		</header>
 		
 		<div class="body">
-			<div id="reservation">
+			<div id="reservation_page">
 				<?php
 					$connexion = mysqli_connect("localhost", "root", "", "reservationsalles");
 					$requete = "SELECT * FROM reservations  WHERE id = '".$_GET['id']."'";
@@ -32,13 +32,14 @@
 					$requete2 = "SELECT login FROM utilisateurs WHERE id = '".$donnees['id_utilisateur']."'";
 					$req = mysqli_query($connexion, $requete2);
 					$data = mysqli_fetch_assoc($req);
-				
-					echo $data['login'], '<br/>';
-					echo $donnees['titre'], '<br/>';
-					echo $donnees['description'], '<br/>';
-					echo $donnees['debut'], '<br/>';
-					echo $donnees['fin'], '<br/>';
 				?>
+				
+				<div class="reservation_page_info"><?php echo $donnees['titre']; ?></div>
+				<div class="reservation_page_info">Réserver par <?php echo $data['login']; ?></div>
+				<div class="reservation_page_info">Salles <?php echo $donnees['salles']; ?></div>
+				<div class="reservation_page_info">Du <?php echo $donnees['debut']; ?></div>
+				<div class="reservation_page_info">Au <?php echo $donnees['fin']; ?></div>
+				<div class="reservation_page_info">Description<br/><?php echo $donnees['description']; ?></div>
 			</div>
 		</div>
 		
